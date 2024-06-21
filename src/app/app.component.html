@@ -1,2 +1,12 @@
-<h1>{{title}}</h1>
-<router-outlet></router-outlet>
+<!-- <h1>{{title}}</h1>
+<router-outlet></router-outlet> -->
+<nav class="nav">
+  <div class="nav__menu">
+    <a class="brand" [routerLink]="['/']">The Weather</a>
+  </div>
+</nav>
+<div class="container mx-auto">
+  <app-search (submitted)="onSearch($event)"></app-search>
+  <!-- <pre>{{weather$ | async | json}}</pre> -->
+  <app-weather *ngIf="weather$ | async as weather" [weather]="weather"></app-weather>
+</div>
